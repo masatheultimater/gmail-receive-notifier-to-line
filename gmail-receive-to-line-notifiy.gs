@@ -3,7 +3,7 @@ const lineNotifyApi = PropertiesService.getScriptProperties().getProperty("lineN
 const udemyUrl = PropertiesService.getScriptProperties().getProperty("udemyUrl")
 
 
-function notifyToLine_(data, line_token) {
+function notifyToLine(data, line_token) {
   let options = {
   "method": "post",
   "payload": {"message": data},
@@ -15,7 +15,7 @@ function notifyToLine_(data, line_token) {
 
 function udemy_sale_mail_notify() {
   targetLabel = 'Udemy セール・クーポン'
-  const query = 'label: " + targetLabel + " AND newer_than:60d'
+  const query = 'label:' + targetLabel + ' AND newer_than:2d'
   const threads = GmailApp.search(query)
   const line_token = PropertiesService.getScriptProperties().getProperty("udemySaleNotifyLineToken")
 
