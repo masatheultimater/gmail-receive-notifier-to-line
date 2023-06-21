@@ -15,7 +15,7 @@ function notifyToLine(data, line_token) {
 
 function udemy_sale_mail_notify() {
   targetLabel = 'Udemy セール・クーポン'
-  const query = 'label:' + targetLabel + ' AND newer_than:2d'
+  const query = 'label:' + targetLabel + ' AND newer_than:1d AND is:unread'
   const threads = GmailApp.search(query)
   const line_token = PropertiesService.getScriptProperties().getProperty("udemySaleNotifyLineToken")
 
